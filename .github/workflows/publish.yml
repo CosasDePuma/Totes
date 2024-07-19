@@ -11,17 +11,13 @@ on:
       - cron: '0 0 1 */1 *'
 
 jobs:
-  build-and-push-image:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
-      attestations: write
-      id-token: write
-
+  build-and-push:
     strategy:
       matrix:
         container: [ethsecurity]
+        os: [ubuntu-latest, macos-latest-xlarge]
+
+    runs-on: ${{ matrix.os }}
 
     steps:
       - name: Checkout repository
@@ -42,7 +38,7 @@ jobs:
             type=schedule,pattern=nightly
             type=schedule,pattern={{date 'YYYY-MM'}}
             type=semver,pattern=v{{major}}
-            type=semver,pattern=v{{raw}}
+            type=semver,pattern={{raw}}
             type=match,pattern=latest,group=0
 
       - name: Build and push the image
@@ -53,11 +49,4 @@ jobs:
           context: ${{ matrix.container }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-      
-      - name: Generate artifact attestation
-        uses: actions/attest-build-provenance@v1
-        with:
-          subject-name: ${{ secrets.DOCKER_USERNAME }}/${{ matrix.container }}
-          subject-digest: ${{ steps.push.outputs.digest }}
-          push-to-registry: true
       
