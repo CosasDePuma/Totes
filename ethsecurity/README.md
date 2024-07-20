@@ -56,3 +56,10 @@ docker run --name ethsecurity --rm -it -v "$(pwd):/code" cosasdepuma/ethsecurity
 | [solc-select](https://github.com/crytic/solc-select) | A Solidity compiler version manager. |
 | [tealer](https://github.com/crytic/tealer) | Static analyzer for Teal. |
 | [vyper](https://github.com/vyperlang/vyper) | Pythonic smart contract language for the EVM. |
+
+<div align="center">
+    <br />
+    <hr />
+    <img src="../.github/readme/ethsecurity.jpg" alt="EthSecurity" />
+    <hr />
+</div>
