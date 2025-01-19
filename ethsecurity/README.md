@@ -1,3 +1,13 @@
+<div align="center">
+    <hr />
+    <img src="../.github/readme/ethsecurity.jpg" alt="EthSecurity" />
+    <hr />
+</div>
+
+### 👀 Overview
+
+This Docker container provides a comprehensive suite of security tools and resources designed for Ethereum smart contract analysis and auditing.
+
 ```
  ____ ____ ____ ____ ____ ____ ____ ____ ____ 
 ||⟠ |||S |||e |||c |||u |||r |||i |||t |||y ||
@@ -30,16 +40,13 @@ Notes:
 
 ---
 
-### 👀 Overview
-
-This Docker container provides a comprehensive suite of security tools and resources designed for Ethereum smart contract analysis and auditing.
-
-### 📖 How to use
+### 📖 How to use it
 
 ```bash
 docker run --name ethsecurity --rm -it -v "$(pwd):/code" cosasdepuma/ethsecurity:latest
 ```
 
+---
 
 ### 🧰 Resources
 
@@ -56,10 +63,3 @@ docker run --name ethsecurity --rm -it -v "$(pwd):/code" cosasdepuma/ethsecurity
 | [solc-select](https://github.com/crytic/solc-select) | A Solidity compiler version manager. |
 | [tealer](https://github.com/crytic/tealer) | Static analyzer for Teal. |
 | [vyper](https://github.com/vyperlang/vyper) | Pythonic smart contract language for the EVM. |
-
-<div align="center">
-    <br />
-    <hr />
-    <img src="../.github/readme/ethsecurity.jpg" alt="EthSecurity" />
-    <hr />
-</div>
